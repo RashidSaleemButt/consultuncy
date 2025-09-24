@@ -315,8 +315,8 @@ input:focus, textarea:focus, select:focus {
 
 /* Enhanced Span Styling */
 span:not(.orange--word):not(.contact-icon):not(.booking-icon):not(.trainer--social):not(.footer-heart):not(.menu--icon):not(.packages--select-value):not(.packages--select-arrow):not(.dark-bg--normal-word) {
-  color: var(--neutral-50) !important;
-  font-weight: var(--font-bold) !important;
+  /* color: var(--neutral-50) !important; */
+  /* font-weight: var(--font-bold) !important; */
   text-shadow: none;
   letter-spacing: 0.3px;
   font-size: 1.05em;

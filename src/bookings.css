@@ -120,8 +120,8 @@
 
 /* Service List Items - Main Section */
 .bookings-col ul:first-of-type li span:not(.booking-icon) {
-  color: #2563eb !important; /* This was forcing blue color */
-  font-weight: 500 !important; /* This was making it less bold */
+  /* color: #2563eb !important; This was forcing blue color */
+  font-weight: 500 !important; 
   font-size: 1rem;
   letter-spacing: 0.2px;
 }

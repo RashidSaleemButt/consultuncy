@@ -88,7 +88,7 @@ const Bookings = React.forwardRef((props, ref) => {
           {/* Additional Information */}
           <div className="mt-8 p-4 bg-gray-50 rounded-lg">
             <h4 className="text-xl font-semibold mb-3">What to Expect:</h4>
-            <ul className="text-sm space-y-2 text-gray-600">
+            <ul className="text-sm space-y-2" style={{color: 'black'}}>
               <li>• Initial consultation call within 24 hours</li>
               <li>• Personalized action plan tailored to your goals</li>
               <li>• Expert guidance from industry professionals</li>
