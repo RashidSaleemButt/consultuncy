@@ -55,7 +55,7 @@ import courseoutImg from "../assets/images/courseout.jpg";
 import skillsImg from "../assets/images/skills.jpg";
 import specialImg from "../assets/images/special.jpg";
 import educationIconImg from "../assets/images/education-icon.png";
-import journeyImg from "../assets/images/journey.png";
+import skillImg from "../assets/images/skill.jpg";
 import missionImg from "../assets/images/mission.jpg";
 
 export default function Services() {
@@ -131,7 +131,7 @@ export default function Services() {
                 <div className="service-detail-card">
                   <div className="service-icon">🛂</div>
                   <h4>Visa Guidance</h4>
-                  <p>UK/Europe/Canada pathways</p>
+                  <p>WORLDWIDE pathways</p>
                   <small>Support with understanding options (not legal advice)</small>
                 </div>
                 
@@ -167,7 +167,7 @@ export default function Services() {
             <div className="services-visual">
               <div className="services-highlight-images">
                 <img src={educationIconImg} alt="Education Icon" className="highlight-image" />
-                <img src={journeyImg} alt="Career Journey" className="highlight-image" />
+                <img src={skillImg} alt="Career Journey" className="highlight-image" />
                 <img src={missionImg} alt="Our Mission" className="highlight-image" />
               </div>
               <div className="services-stats">

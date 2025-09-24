@@ -107,7 +107,7 @@ const Contact = React.forwardRef((props, ref) => {
     >
       <div className="relative flex flex-col md:flex-row max-w-5xl w-full mx-auto shadow-lg rounded-2xl overflow-hidden p-6 md:p-0 bg-white dark:bg-zinc-800 transition-colors duration-300">
         <div className="contact-col md:w-1/2 p-6 flex flex-col justify-center space-y-6">
-          <h3 className="text-3xl font-semibold">SEND US YOUR DETAILS</h3>
+          <h3 className="text-3xl font-semibold">SEND US YOUR QUERIES</h3>
           <p className="text-gray-700 dark:text-gray-300">
             Wherever you&apos;re starting strategy, operations, or simply navigating new markets  our global experts are here to guide you with confidence.
           </p>
@@ -146,7 +146,7 @@ const Contact = React.forwardRef((props, ref) => {
             <input type="hidden" name="replyto" value="email" />
             <textarea
               name="message"
-              placeholder="Describe your queries..."
+              placeholder="Description..."
               rows={5}
               required
               className="w-full bg-transparent border-b border-gray-400 focus:outline-none focus:border-zinc-500 text-zinc-900 dark:text-white dark:border-zinc-500 dark:focus:border-zinc-400 pb-2 placeholder-gray-500 dark:placeholder-gray-400 resize-none"

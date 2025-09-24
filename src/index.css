@@ -3075,7 +3075,7 @@ body {
   transition: background-color 0.3s, color 0.3s;
   background-color: #f3f4f6;
   color: #18181b;
-}
+} 
 
 body.dark {
   background-color: #18181b;

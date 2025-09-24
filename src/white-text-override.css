@@ -1,0 +1,23 @@
+/* Custom utility classes for white prominent text */
+.text-gray-700,
+.text-gray-300,
+.dark\:text-gray-300 {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+  letter-spacing: 0.025em !important;
+  font-size: 1.1em !important;
+  line-height: 1.6 !important;
+}
+
+/* Ensure text remains white in dark mode */
+.dark .text-gray-700,
+.dark .text-gray-300,
+.dark .dark\:text-gray-300 {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
+  letter-spacing: 0.025em !important;
+  font-size: 1.1em !important;
+  line-height: 1.6 !important;
+}

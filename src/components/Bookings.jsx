@@ -63,25 +63,25 @@ const Bookings = React.forwardRef((props, ref) => {
         {/* Information Column */}
         <div className="bookings-col lg:w-2/5 p-6 flex flex-col justify-center space-y-6">
           <h3 className="text-3xl font-semibold uppercase">Book Your Consultant Here</h3>
-          <p className="text-gray-700">
-            Launch your dream career—book your expert consultant and take the first powerful step towards success.
+          <p style={{color: 'black', fontWeight: '600', fontSize: '1.1em', lineHeight: '1.6', letterSpacing: '0.025em'}}>
+            Launch your dream career book your expert consultant and take the first powerful step towards success.
           </p>
           <ul className="space-y-3">
             <li className="flex items-center space-x-3">
               <span className="booking-icon text-xl">📋</span>
-              <span className="text-orange-600 font-semibold text-lg">Professional Career Guidance</span>
+              <span className="text-black font-bold text-lg">Professional Career Guidance</span>
             </li>
             <li className="flex items-center space-x-3">
               <span className="booking-icon text-xl">🛂</span>
-              <span className="text-orange-600 font-semibold text-lg">Visa & Immigration Support</span>
+              <span className="text-black font-bold text-lg">Visa & Immigration Support</span>
             </li>
             <li className="flex items-center space-x-3">
               <span className="booking-icon text-xl">🏢</span>
-              <span className="text-orange-600 font-semibold text-lg">Business Setup Consultation</span>
+              <span className="text-black font-bold text-lg">Business Setup Consultation</span>
             </li>
             <li className="flex items-center space-x-3">
               <span className="booking-icon text-xl">🎓</span>
-              <span className="text-orange-600 font-semibold text-lg">Education Planning</span>
+              <span className="text-black font-bold text-lg">Education Planning</span>
             </li>
           </ul>
           
