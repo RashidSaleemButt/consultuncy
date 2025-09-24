@@ -1,0 +1,468 @@
+/*
+ * Utility: Linear Gradient Overlay for Dark Background Effect on Images
+ */
+.image-gradient-shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(10,10,10,0.97) 0%, rgba(20,20,20,0.93) 100%);
+  z-index: 2;
+}
+
+/* Bookings Section - Light Mode Only */
+.bookings {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 85vh;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  position: relative;
+  color: #333333;
+}
+
+/* Main Container */
+.bookings > div {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  max-width: 65rem;
+  width: 100%;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 1.5rem;
+  box-shadow: 
+    0 20px 40px -12px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Information Column */
+.bookings-col {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+  background: rgba(35, 45, 57, 0.05);
+}
+
+.bookings-col h3 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #f59e0b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.bookings-col p {
+  font-size: 1rem;
+  color: #666666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Service List Styling */
+.bookings-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.bookings-col li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 0.75rem;
+  border: 1px solid rgba(237, 86, 59, 0.2);
+  transition: all 0.3s ease;
+  color: #000000;
+  font-weight: 600;
+}
+
+.bookings-col li:hover {
+  background: rgba(255, 255, 255, 1);
+  border-color: #f59e0b;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(237, 86, 59, 0.15);
+  color: #000000;
+}
+
+.booking-icon {
+  font-size: 1.25rem;
+  min-width: 1.5rem;
+  text-align: center;
+}
+
+/* Ensure list items are prominently black in light mode */
+.bookings-col ul.space-y-3 li,
+.bookings-col ul.space-y-3 li span:not(.booking-icon) {
+  color: #000000 !important;
+  font-weight: 600 !important;
+}
+
+/* What to Expect Section */
+.bookings-col > div {
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 1rem;
+  border: 1px solid rgba(237, 86, 59, 0.2);
+}
+
+.bookings-col h4 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #f59e0b;
+  margin: 0 0 0.75rem 0;
+}
+
+/* Service List Items - Main Section */
+.bookings-col ul:first-of-type li span:not(.booking-icon) {
+  color: #2563eb !important; /* Bright blue for light mode */
+  font-weight: 500 !important; /* Unbold - medium weight */
+  font-size: 1rem;
+  letter-spacing: 0.2px;
+}
+
+/* What to Expect Section List Items */
+.bookings-col div ul li {
+  color: #dc2626 !important; /* Bright red for prominence in light mode */
+  font-weight: 600 !important; /* Semi-bold for good visibility */
+  font-size: 0.9rem;
+  letter-spacing: 0.3px;
+  text-shadow: 0 1px 2px rgba(220, 38, 38, 0.1);
+  transition: color 0.3s ease;
+}
+
+/* Hover effects for better interactivity */
+.bookings-col div ul li:hover {
+  color: #b91c1c !important; /* Darker red on hover */
+}
+
+/* Form Column Styling */
+.bookings-form-col {
+  padding: 2rem;
+  background: #ffffff;
+}
+
+/* Form Styling */
+.bookings-form-col form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 100%;
+}
+
+/* Input Styling - Matching Home Theme */
+.bookings-form-col input,
+.bookings-form-col select,
+.bookings-form-col textarea {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--lightTheme-secondary-Color);
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid rgba(237, 86, 59, 0.2);
+  border-radius: 0.75rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  resize: none;
+}
+
+.bookings-form-col input::placeholder,
+.bookings-form-col textarea::placeholder {
+  color: var(--lightTheme-gray);
+  font-weight: 400;
+}
+
+.bookings-form-col input:focus,
+.bookings-form-col select:focus,
+.bookings-form-col textarea:focus {
+  outline: none;
+  border-color: var(--lightTheme-orange);
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 
+    0 0 0 4px rgba(237, 86, 59, 0.1),
+    0 8px 20px rgba(237, 86, 59, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Select Dropdown Styling */
+.bookings-form-col select {
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23ed563b'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1rem;
+  padding-right: 2.5rem;
+}
+
+/* File Input Styling */
+.bookings-form-col input[type="file"] {
+  padding: 0.75rem;
+  background: rgba(237, 86, 59, 0.1);
+  border: 2px dashed rgba(237, 86, 59, 0.3);
+  cursor: pointer;
+}
+
+.bookings-form-col input[type="file"]:hover {
+  border-color: #f59e0b;
+  background: rgba(237, 86, 59, 0.15);
+}
+
+/* File Input Button */
+.bookings-form-col input[type="file"]::-webkit-file-upload-button {
+  background: #f59e0b;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  margin-right: 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.bookings-form-col input[type="file"]::-webkit-file-upload-button:hover {
+  background: #d97706;
+  transform: translateY(-1px);
+}
+
+/* Label Styling */
+.bookings-form-col label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #666666;
+  margin-bottom: 0.5rem;
+}
+
+/* Button Styling - Light Mode Only */
+.bookings-form-col button {
+  padding: 1rem 1.75rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: #f59e0b;
+  border: none;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(237, 86, 59, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.bookings-form-col button:hover:not(:disabled) {
+  background: #d97706;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(237, 86, 59, 0.4);
+}
+
+.bookings-form-col button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 0 4px 10px rgba(237, 86, 59, 0.2);
+}
+
+/* Success/Error Messages - Light Mode Only */
+.bookings-message {
+  padding: 1rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  border-left: 4px solid;
+  backdrop-filter: blur(10px);
+}
+
+.bookings-message.success {
+  background: rgba(34, 197, 94, 0.1);
+  color: #166534;
+  border-left-color: #22c55e;
+}
+
+.bookings-message.error {
+  background: rgba(239, 68, 68, 0.1);
+  color: #991b1b;
+  border-left-color: #ef4444;
+}
+
+/* Responsive Design - Compact Version */
+@media (max-width: 640px) {
+  .bookings {
+    padding: 1rem;
+    min-height: 80vh;
+  }
+  
+  .bookings > div {
+    border-radius: 1rem;
+    margin: 0;
+    max-width: 100%;
+  }
+  
+  .bookings-col,
+  .bookings-form-col {
+    padding: 1.5rem;
+  }
+  
+  .bookings-col h3 {
+    font-size: 1.5rem;
+  }
+  
+  .bookings-col li {
+    padding: 0.5rem;
+  }
+  
+  .bookings-col > div {
+    padding: 1rem;
+  }
+  
+  .bookings-form-col form {
+    gap: 1rem;
+  }
+  
+  .bookings-form-col input,
+  .bookings-form-col select,
+  .bookings-form-col textarea {
+    padding: 0.75rem;
+    font-size: 1rem; /* Prevents zoom on iOS */
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .bookings {
+    padding: 1.25rem;
+  }
+  
+  .bookings-col,
+  .bookings-form-col {
+    padding: 1.75rem;
+  }
+  
+  .bookings-col h3 {
+    font-size: 1.75rem;
+  }
+}
+
+@media (min-width: 1025px) {
+  .bookings > div {
+    flex-direction: row;
+  }
+  
+  .bookings-col {
+    border-radius: 1.5rem 0 0 1.5rem;
+  }
+  
+  .bookings-form-col {
+    border-radius: 0 1.5rem 1.5rem 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .bookings {
+    padding: 2rem;
+  }
+  
+  .bookings > div {
+    max-width: 70rem;
+  }
+  
+  .bookings-col,
+  .bookings-form-col {
+    padding: 2.5rem;
+  }
+  
+  .bookings-col h3 {
+    font-size: 2.25rem;
+  }
+  
+  .bookings-col p {
+    font-size: 1.1rem;
+  }
+}
+
+/* Animation for form elements */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.bookings-form-col form > * {
+  animation: slideIn 0.6s ease forwards;
+}
+
+.bookings-form-col form > *:nth-child(1) { animation-delay: 0.1s; }
+.bookings-form-col form > *:nth-child(2) { animation-delay: 0.2s; }
+.bookings-form-col form > *:nth-child(3) { animation-delay: 0.3s; }
+.bookings-form-col form > *:nth-child(4) { animation-delay: 0.4s; }
+.bookings-form-col form > *:nth-child(5) { animation-delay: 0.5s; }
+.bookings-form-col form > *:nth-child(6) { animation-delay: 0.6s; }
+.bookings-form-col form > *:nth-child(7) { animation-delay: 0.7s; }
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .bookings-form-col form > *,
+  .bookings-form-col button,
+  .bookings-form-col input,
+  .bookings-form-col select,
+  .bookings-form-col textarea,
+  .bookings-col li {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .bookings-form-col input,
+  .bookings-form-col select,
+  .bookings-form-col textarea {
+    border-width: 3px;
+  }
+  
+  .bookings-form-col button {
+    border: 2px solid #000;
+  }
+}
+
+/* Print styles */
+@media print {
+  .bookings {
+    background: white;
+    padding: 1rem;
+  }
+  
+  .bookings > div {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+  
+  .bookings-form-col button {
+    display: none;
+  }
+}
