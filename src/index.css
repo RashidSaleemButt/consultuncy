@@ -4299,6 +4299,25 @@ body.dark {
     box-shadow: 0 8px 32px rgba(0, 86, 179, 0.25);
 }
 
+/* GitHub and YouTube specific styling */
+.footer-social a:nth-child(4) {
+    background: #333; /* GitHub dark color */
+}
+
+.footer-social a:nth-child(4):hover {
+    background: #24292e; /* GitHub darker hover */
+    box-shadow: 0 8px 32px rgba(36, 41, 46, 0.25);
+}
+
+.footer-social a:nth-child(5) {
+    background: #ff0000; /* YouTube red */
+}
+
+.footer-social a:nth-child(5):hover {
+    background: #cc0000; /* YouTube darker red */
+    box-shadow: 0 8px 32px rgba(255, 0, 0, 0.25);
+}
+
 /*
 * ============================
 * "MADE BY" SECTION
