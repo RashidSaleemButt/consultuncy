@@ -1,164 +1,233 @@
-// import React, { useState } from "react";
-
-// const Contact = React.forwardRef((props, ref) => {
-//   const [result, setResult] = useState("");
-
-//   const onSubmit = async (event) => {
-//     event.preventDefault();
-//     setResult("Sending....");
-//     const formData = new FormData(event.target);
-
-//     formData.append("access_key", "89b07247-ac89-455a-ae54-89912038a87e");
-
-//     const response = await fetch("https://api.web3forms.com/submit", {
-//       method: "POST",
-//       body: formData,
-//     });
-
-//     const data = await response.json();
-
-//     if (data.success) {
-//       setResult("Form Submitted Successfully");
-//       event.target.reset();
-//     } else {
-//       console.log("Error", data);
-//       setResult(data.message);
-//     }
-//   };
-
-//   return (
-//     <section className="contact" id="contact" ref={ref}>
-//       <div className="contact-col">
-//         <h3>SEND US YOUR PROBLEM</h3>
-//         <p>
-//           Just let us know where you're struggling form, fitness, or just
-//           feeling like a newbie! Our new Hero of Gym Sense is here to spot you,
-//           guide you, and get you lifting with confidence.
-//         </p>
-//         <ul>
-//           <li>
-//             <span className="contact-icon">&#9993;</span>
-//             rashidbutt0309@gmail.com
-//           </li>
-//           <li>
-//             <span className="contact-icon">&#128222;</span>
-//             +92 309 1982012
-//           </li>
-//           <li>
-//             <span className="contact-icon">&#127968;</span>
-//             Lahore, Pakistan
-//           </li>
-//         </ul>
-//       </div>
-//       <div className="contact-col contact-form">
-//         <form onSubmit={onSubmit}>
-//           <input type="text" name="name" placeholder="Your Name" required />
-//           <input type="email" name="email" placeholder="Your Email" required />
-//           <input type="hidden" name="replyto" value="email" />
-//           <textarea
-//             name="message"
-//             placeholder="Describe your problem..."
-//             rows={5}
-//             required
-//           />
-//           <button type="submit">Sumbit Here</button>
-//         </form>
-//         <span>{result}</span>
-//       </div>
-//     </section>
-//   );
-// });
-
-// export default Contact;
-
-
 import React, { useState } from "react";
 
 const Contact = React.forwardRef((props, ref) => {
   const [result, setResult] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: ""
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
 
   const onSubmit = async (event) => {
     event.preventDefault();
+    setIsSubmitting(true);
     setResult("Sending....");
-    const formData = new FormData(event.target);
-    formData.append("access_key", "89b07247-ac89-455a-ae54-89912038a87e");
+    
+    try {
+      const submitData = new FormData();
+      submitData.append("name", formData.name);
+      submitData.append("email", formData.email);
+      submitData.append("message", formData.message);
+      submitData.append("access_key", "89b07247-ac89-455a-ae54-89912038a87e");
 
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      body: formData,
-    });
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: submitData,
+      });
 
-    const data = await response.json();
+      const data = await response.json();
 
-    if (data.success) {
-      setResult("Form Submitted Successfully");
-      event.target.reset();
-    } else {
-      console.log("Error", data);
-      setResult(data.message);
+      if (data.success) {
+        setResult("Form Submitted Successfully! We'll get back to you soon.");
+        setFormData({
+          name: "",
+          email: "",
+          message: ""
+        });
+      } else {
+        console.log("Error", data);
+        setResult(`Error: ${data.message || "Something went wrong. Please try again."}`);
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      setResult("Error: Unable to submit form. Please check your connection and try again.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
   return (
     <section
-      className="contact flex items-center justify-center min-h-screen p-4 md:p-8 bg-gray-100 dark:bg-zinc-900 text-zinc-900 dark:text-white transition-colors duration-300"
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        minHeight: '100vh',
+        padding: '2rem',
+        backgroundColor: '#f3f4f6',
+        color: '#111827'
+      }}
       id="contact"
       ref={ref}
     >
-      <div className="relative flex flex-col md:flex-row max-w-5xl w-full mx-auto shadow-lg rounded-2xl overflow-hidden p-6 md:p-0 bg-white dark:bg-zinc-800 transition-colors duration-300">
-        <div className="contact-col md:w-1/2 p-6 flex flex-col justify-center space-y-6">
-          <h3 className="text-3xl font-semibold">SEND US YOUR QUERIES</h3>
-          <p className="text-gray-700 dark:text-gray-300">
+      <div style={{
+        position: 'relative',
+        display: 'flex',
+        flexDirection: 'row',
+        maxWidth: '80rem',
+        width: '100%',
+        margin: '0 auto',
+        boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
+        borderRadius: '1rem',
+        overflow: 'hidden',
+        backgroundColor: 'white'
+      }}>
+        <div style={{
+          width: '50%',
+          padding: '2rem',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center'
+        }}>
+          <h3 style={{
+            fontSize: '1.875rem',
+            fontWeight: '600',
+            marginBottom: '1.5rem'
+          }}>SEND US YOUR QUERIES</h3>
+          <p style={{
+            color: '#4b5563',
+            marginBottom: '2rem'
+          }}>
             Wherever you&apos;re starting strategy, operations, or simply navigating new markets  our global experts are here to guide you with confidence.
           </p>
-          <ul className="space-y-2">
-            <li className="flex items-center space-x-2">
-              <span className="contact-icon">&#9993;</span>
+          <ul style={{ listStyle: 'none', padding: 0 }}>
+            <li style={{ display: 'flex', alignItems: 'center', marginBottom: '0.5rem' }}>
+              <span style={{ marginRight: '0.5rem' }}>&#9993;</span>
               <span>hello123@gmail.com</span>
             </li>
-            <li className="flex items-center space-x-2">
-              <span className="contact-icon">&#128222;</span>
+            <li style={{ display: 'flex', alignItems: 'center', marginBottom: '0.5rem' }}>
+              <span style={{ marginRight: '0.5rem' }}>&#128222;</span>
               <span>+123456789</span>
             </li>
-            <li className="flex items-center space-x-2">
-              <span className="contact-icon">&#127968;</span>
+            <li style={{ display: 'flex', alignItems: 'center', marginBottom: '0.5rem' }}>
+              <span style={{ marginRight: '0.5rem' }}>&#127968;</span>
               <span>london, United Kingdom</span>
             </li>
           </ul>
         </div>
 
-        <div className="contact-col contact-form md:w-1/2 p-6 flex flex-col justify-center">
-          <form onSubmit={onSubmit} className="space-y-6">
+        <div style={{
+          width: '50%',
+          padding: '2rem',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center'
+        }}>
+          <form onSubmit={onSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
             <input
               type="text"
               name="name"
               placeholder="Your Name"
               required
-              className="w-full bg-transparent border-b border-gray-400 focus:outline-none focus:border-zinc-500 text-zinc-900 dark:text-white dark:border-zinc-500 dark:focus:border-zinc-400 pb-2 placeholder-gray-500 dark:placeholder-gray-400"
+              value={formData.name}
+              onChange={handleInputChange}
+              disabled={isSubmitting}
+              style={{
+                width: '100%',
+                padding: '12px 16px',
+                backgroundColor: 'white',
+                border: '2px solid #d1d5db',
+                borderRadius: '8px',
+                fontSize: '16px',
+                color: '#111827',
+                outline: 'none',
+                transition: 'all 0.2s ease',
+                opacity: isSubmitting ? 0.5 : 1
+              }}
+              onFocus={(e) => e.target.style.borderColor = '#3b82f6'}
+              onBlur={(e) => e.target.style.borderColor = '#d1d5db'}
             />
             <input
               type="email"
               name="email"
               placeholder="Your Email"
               required
-              className="w-full bg-transparent border-b border-gray-400 focus:outline-none focus:border-zinc-500 text-zinc-900 dark:text-white dark:border-zinc-500 dark:focus:border-zinc-400 pb-2 placeholder-gray-500 dark:placeholder-gray-400"
+              value={formData.email}
+              onChange={handleInputChange}
+              disabled={isSubmitting}
+              style={{
+                width: '100%',
+                padding: '12px 16px',
+                backgroundColor: 'white',
+                border: '2px solid #d1d5db',
+                borderRadius: '8px',
+                fontSize: '16px',
+                color: '#111827',
+                outline: 'none',
+                transition: 'all 0.2s ease',
+                opacity: isSubmitting ? 0.5 : 1
+              }}
+              onFocus={(e) => e.target.style.borderColor = '#3b82f6'}
+              onBlur={(e) => e.target.style.borderColor = '#d1d5db'}
             />
             <input type="hidden" name="replyto" value="email" />
             <textarea
               name="message"
-              placeholder="Description..."
-              rows={5}
+              placeholder="Tell us about your project or inquiry..."
+              rows={6}
               required
-              className="w-full bg-transparent border-b border-gray-400 focus:outline-none focus:border-zinc-500 text-zinc-900 dark:text-white dark:border-zinc-500 dark:focus:border-zinc-400 pb-2 placeholder-gray-500 dark:placeholder-gray-400 resize-none"
+              value={formData.message}
+              onChange={handleInputChange}
+              disabled={isSubmitting}
+              style={{
+                width: '100%',
+                padding: '12px 16px',
+                backgroundColor: 'white',
+                border: '2px solid #d1d5db',
+                borderRadius: '8px',
+                fontSize: '16px',
+                color: '#111827',
+                outline: 'none',
+                transition: 'all 0.2s ease',
+                resize: 'vertical',
+                minHeight: '120px',
+                fontFamily: 'inherit',
+                opacity: isSubmitting ? 0.5 : 1
+              }}
+              onFocus={(e) => e.target.style.borderColor = '#3b82f6'}
+              onBlur={(e) => e.target.style.borderColor = '#d1d5db'}
             />
             <button
               type="submit"
-              className="mt-4 w-full py-3 px-6 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 rounded-full font-semibold transition-colors duration-300 hover:bg-zinc-800 dark:hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-900 dark:focus:ring-white"
+              disabled={isSubmitting}
+              style={{
+                marginTop: '1rem',
+                width: '100%',
+                padding: '12px 24px',
+                backgroundColor: '#111827',
+                color: 'white',
+                borderRadius: '9999px',
+                fontWeight: '600',
+                transition: 'all 0.3s ease',
+                border: 'none',
+                cursor: isSubmitting ? 'not-allowed' : 'pointer',
+                opacity: isSubmitting ? 0.5 : 1
+              }}
+              onMouseOver={(e) => !isSubmitting && (e.target.style.backgroundColor = '#374151')}
+              onMouseOut={(e) => !isSubmitting && (e.target.style.backgroundColor = '#111827')}
             >
-              Submit Here
+              {isSubmitting ? "Sending..." : "Submit Here"}
             </button>
           </form>
-          <span className="mt-4 text-sm text-green-600 dark:text-green-400">{result}</span>
+          {result && (
+            <div style={{
+              marginTop: '1rem',
+              fontSize: '14px',
+              fontWeight: '500',
+              color: result.includes("Error") ? '#dc2626' : '#059669'
+            }}>
+              {result}
+            </div>
+          )}
         </div>
       </div>
     </section>
