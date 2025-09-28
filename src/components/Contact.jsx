@@ -27,7 +27,7 @@ const Contact = React.forwardRef((props, ref) => {
       submitData.append("name", formData.name);
       submitData.append("email", formData.email);
       submitData.append("message", formData.message);
-      submitData.append("access_key", "89b07247-ac89-455a-ae54-89912038a87e");
+      submitData.append("access_key","fff3d124-a089-45a3-87f9-4c85d1791f54");
 
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
@@ -97,7 +97,7 @@ const Contact = React.forwardRef((props, ref) => {
             color: '#4b5563',
             marginBottom: '2rem'
           }}>
-            Wherever you&apos;re starting strategy, operations, or simply navigating new markets  our global experts are here to guide you with confidence.
+            <strong>Wherever you&apos;re starting strategy, operations, or simply navigating new markets  our global experts are here to guide you with confidence.</strong>
           </p>
           <ul style={{ listStyle: 'none', padding: 0 }}>
             <li style={{ display: 'flex', alignItems: 'center', marginBottom: '0.5rem' }}>
@@ -172,7 +172,7 @@ const Contact = React.forwardRef((props, ref) => {
             <input type="hidden" name="replyto" value="email" />
             <textarea
               name="message"
-              placeholder="Tell us about your project or inquiry..."
+              placeholder="Description..."
               rows={6}
               required
               value={formData.message}

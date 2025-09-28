@@ -22,7 +22,7 @@ const Bookings = React.forwardRef((props, ref) => {
     setLoading(true);
     setResult("");
     const formData = new FormData(e.target);
-    formData.append("access_key", "89b07247-ac89-455a-ae54-89912038a87e"); // Replace with your Web3Forms access key
+    formData.append("access_key", "fff3d124-a089-45a3-87f9-4c85d1791f54"); // Replace with your Web3Forms access key
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
