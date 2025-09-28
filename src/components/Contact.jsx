@@ -102,15 +102,15 @@ const Contact = React.forwardRef((props, ref) => {
           <ul style={{ listStyle: 'none', padding: 0 }}>
             <li style={{ display: 'flex', alignItems: 'center', marginBottom: '0.5rem' }}>
               <span style={{ marginRight: '0.5rem' }}>&#9993;</span>
-              <span>hello123@gmail.com</span>
+              <span>midlumesconsultancy@gmail.com</span>
             </li>
             <li style={{ display: 'flex', alignItems: 'center', marginBottom: '0.5rem' }}>
               <span style={{ marginRight: '0.5rem' }}>&#128222;</span>
-              <span>+123456789</span>
+              <span>+44 7404 891507 </span>
             </li>
             <li style={{ display: 'flex', alignItems: 'center', marginBottom: '0.5rem' }}>
               <span style={{ marginRight: '0.5rem' }}>&#127968;</span>
-              <span>london, United Kingdom</span>
+              <span>Canterbury, United Kingdom</span>
             </li>
           </ul>
         </div>
